@@ -1,0 +1,98 @@
+
+form.edit_test h3, form.new_test h3 {
+  clear: both;
+  padding: 20px;
+  padding-left: 30px;
+}
+
+.ff-answer {
+  padding-left: 30px;
+}
+
+div.a-answer {
+  clear: both;
+}
+
+.stt-answer {
+  width: 15px;
+}
+
+form.edit_test input[type="submit"] {
+  background: #2980b9 !important;
+  margin-top: 50px;
+}
+form.new_test input[type="submit"] {
+  background: #2980b9 !important;
+  margin-top: 50px;
+}
+div.ff-question {
+  input.question-name, .question-description {
+    width: 50%;
+    margin-left: 15px;
+    margin-top: -15px;
+  }
+
+  .question-description {
+    margin-top: 15px;
+  }
+
+  a.remove-question {
+    font-size: 20px;
+    position: absolute;
+    margin-top: -40px;
+  }
+  i.glyphicon-trash {
+    color: #c0392b;
+  }
+
+  div.ff-answer {
+    a[data-association="answers"] {
+      float: right
+    }
+  }
+  a.add_nested_fields[data-association="answers"] {
+    float: left !important;
+    display: block;
+    background: #16a085 !important;
+    margin-left: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+
+  a.add-question {
+    background: #e67e22 !important;
+    margin-top: 60px;
+    margin-left: 15px;
+    clear: both;
+    display: inline-block;
+    float: left;
+  }
+
+}
+
+.line-question {
+  width: 100%;
+  margin-left: 15px;
+  border: 3px solid #eee;
+}
+
+.right-side {
+  min-height: 500px;
+}
+
+a{
+  color: #3c8dbc;
+}
+
+a:visited{
+  color: #2980b9;
+  font-weight: bold;
+}
+
+a.logo{
+  position: fixed;
+}
+
+aside.left-side{
+  position: fixed;
+}

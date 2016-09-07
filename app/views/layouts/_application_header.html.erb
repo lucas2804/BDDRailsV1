@@ -1,0 +1,63 @@
+<header class="header">
+  <a href="#" class="logo">
+    <!-- Add the class icon to your logo image or logo icon to add the margining -->
+    AdminLTE
+  </a>
+  <!-- Header Navbar: style can be found in header.less -->
+  <nav class="navbar navbar-static-top" role="navigation">
+    <!-- Sidebar toggle button-->
+    <a href="#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </a>
+    <div class="navbar-right">
+      <ul class="nav navbar-nav">
+        <li class="dropdown messages-menu">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <i class="fa fa-envelope"></i>
+            <span class="label label-success">4</span>
+          </a>
+        </li>
+        <% unless user_signed_in? %>
+            <li class="<%= "active" if current_page?("/users/sign_up") %>">
+              <%= link_to "Sign up", new_user_registration_path %>
+            </li>
+            <li class="<%= "active" if current_page?("/users/sign_in") %>">
+              <%= link_to "Sign in", new_user_session_path %>
+            </li>
+
+        <% else %>
+            <li class="dropdown user user-menu">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <i class="glyphicon glyphicon-user"></i>
+                <span><%= current_user.email %> <i class="caret"></i></span>
+              </a>
+              <ul class="dropdown-menu">
+                <!-- User image -->
+                <li class="user-header bg-light-blue">
+                  <p>Signed in as <%= current_user.email %></p>
+                </li>
+                <!-- Menu Footer-->
+                <li class="user-footer">
+                  <div class="pull-left">
+                    <%= link_to edit_admin_user_path(current_user), class: "btn btn-primary btn-flat" do %>
+                        Profile
+                    <% end %>
+                  </div>
+                  <div class="pull-right">
+                    <%= button_to "Sign out", destroy_user_session_path, method: "delete", class: "btn btn-warning btn-flat" %>
+                  </div>
+                </li>
+              </ul>
+            </li>
+
+            <li class="<%= "active" if current_page?("/") %>">
+              <%= link_to "Home", root_path %>
+            </li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
+</header>

@@ -1,0 +1,15 @@
+<div class="form-group a-answer">
+  <div class="col-sm-8">
+    <%= ff_answer.text_field :name, class: "form-control" %>
+  </div>
+  <div class="form-group col-sm-3">
+    <%= ff_answer.check_box :is_correct_answer, class: "form-control" %>
+    <%= ff_answer.label :is_correct_answer %>
+
+  </div>
+  <div class="col-sm-1">
+    <%= ff_answer.link_to_remove class: "remove-answer col-sm-1" do %>
+        <i class="glyphicon glyphicon-trash"></i>
+    <% end %>
+  </div>
+</div>

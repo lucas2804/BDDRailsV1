@@ -1,0 +1,66 @@
+<% content_for :content_header do %>
+    <section class="content-header">
+      <h1>Listing
+        <small>users</small>
+      </h1>
+
+      <ol class="breadcrumb">
+        <li><a href="/app/assets/images"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">users</li>
+      </ol>
+    </section>
+<% end %>
+
+<section class="content">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="box box-primary">
+        <div class="box-header">
+          <div class="box-tools pull-right">
+            <%= link_to new_admin_user_path, :class => 'btn btn-flat bg-olive' do %>
+                <span class="glyphicon glyphicon-plus"></span>
+                New User
+            <% end %>
+          </div>
+        </div>
+        <div class="box-body table-responsive">
+          <table class="table table-hover">
+            <thead>
+            <tr>
+              <th>Username</th>
+              <th>Email</th>
+              <th>Admin</th>
+              <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <%= content_tag_for(:tr, @users) do |user| %>
+                <td><%= user.username %></td>
+                <td>
+                  <%= link_to user.email, [:admin, user] %>
+                </td>
+                <% if user.admin? %>
+                    <td><span class="label label-warning">Teacher</span></td>
+                <% else %>
+                    <td><span class="label label-success">Student</span></td>
+                <% end %>
+                <td>
+
+                  <%= link_to edit_admin_user_path(user), class: "btn btn-default btn-flat" do %>
+                      <i class="glyphicon glyphicon-pencil"></i>
+                  <% end %>
+
+                  <%= link_to [:admin, user], class: "btn btn-danger btn-flat", method: :delete, data: {confirm: 'Are you sure?'} do %>
+                      <i class="glyphicon glyphicon-trash"></i>
+                  <% end %>
+                </td>
+
+            <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

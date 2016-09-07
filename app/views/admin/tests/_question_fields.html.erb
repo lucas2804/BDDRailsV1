@@ -1,0 +1,18 @@
+<div>
+  <%= ff_question.link_to_remove class: "remove-question" do %>
+      <i class="glyphicon glyphicon-trash"></i>
+  <% end %>
+  <%= ff_question.text_field :name, class: "form-control question-name" %>
+  <%= ff_question.text_area :description, class: "form-control question-description", placeholder: "Enter a description here" %>
+
+
+  <div class="ff-answer">
+    <%= ff_question.fields_for :answers do |ff_answer| %>
+        <%= render 'answer_fields', ff_answer: ff_answer %>
+    <% end %>
+    <%= ff_question.link_to_add  :answers, class: "add-answer btn btn-flat bg-blue" do %>
+        <i class="glyphicon glyphicon-plus"></i>Add an Answer
+    <% end %>
+  </div>
+
+</div>
