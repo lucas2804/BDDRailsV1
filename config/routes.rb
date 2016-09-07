@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+    resources :projects
+  end
   devise_for :users
 
   namespace :api, defaults: {format: :json} do
@@ -20,6 +23,8 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root to: "application#index"
+    resources :projects
+
     resources :tests
     resources :users
   end

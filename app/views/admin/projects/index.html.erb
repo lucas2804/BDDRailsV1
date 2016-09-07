@@ -1,0 +1,51 @@
+<% content_for :content_header do %>
+    <section class="content-header">
+      <h1>Listing
+        <small>admin_projects</small>
+      </h1>
+
+      <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">admin_projects</li>
+      </ol>
+    </section>
+<% end %>
+
+<section class="content">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="box box-primary">
+        <div class="box-header">
+          <div class="box-tools pull-right">
+            <%= link_to new_admin_project_path(@admin_project), :class => 'btn btn-success' do %>
+                <span class="glyphicon glyphicon-plus"></span>
+                New Project
+            <% end %>
+          </div>
+        </div>
+        <div class="box-body table-responsive">
+          <table class="table table-hover">
+            <thead>
+            <tr>
+              <th>Name</th>
+              <th>Description</th>
+              <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <%= content_tag_for(:tr, @admin_projects) do |project| %>
+                <td><%= link_to project.name, admin_project_path(project) %></td>
+                <td><%= project.description %></td>
+                <td>
+                  <%= link_to 'Edit', edit_admin_project_path(project) %>
+                  <%= link_to 'Destroy', admin_project_path(project), method: :delete, data: {confirm: 'Are you sure?'} %>
+                </td>
+            <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
