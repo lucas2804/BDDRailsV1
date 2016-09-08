@@ -50,6 +50,9 @@ module Admin
     # Use callbacks to share common setup or constraints between actions.
     def set_admin_project
       @admin_project = ::Project.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      flash[:alert] = "The project you were looking for could not be found."
+      redirect_to admin_projects_path
     end
 
     # Only allow a trusted parameter "white list" through.
