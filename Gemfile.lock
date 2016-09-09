@@ -240,9 +240,9 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
-    simple_form (3.3.1)
-      actionpack (> 4, < 5.1)
-      activemodel (> 4, < 5.1)
+    simple_form (3.1.1)
+      actionpack (~> 4.0)
+      activemodel (~> 4.0)
     slop (3.6.0)
     slowhandcuke (0.0.3)
       cucumber
@@ -309,7 +309,7 @@ DEPENDENCIES
   rspec-rails (~> 3.2.1)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
-  simple_form
+  simple_form (~> 3.1.0)
   spring
   spring-commands-rspec
   sprockets (= 3.6.3)

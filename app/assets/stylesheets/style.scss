@@ -1,4 +1,6 @@
-
+@import "bootstrap-sprockets";
+@import "bootstrap";
+$color-error-input: #a94442;
 form.edit_test h3, form.new_test h3 {
   clear: both;
   padding: 20px;
@@ -95,4 +97,20 @@ a.logo{
 
 aside.left-side{
   position: fixed;
+}
+
+.simple_form{
+  input{
+    margin-bottom: 15px;
+  }
+}
+
+.has-error.form-group{
+  label{
+    color: $color-error-input !important;
+  }
+
+  .form-control{
+    border-color: $color-error-input !important;
+  }
 }

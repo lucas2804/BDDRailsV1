@@ -3,14 +3,15 @@ gem "calabash-cucumber", :github => "calabash/calabash-ios", :branch => "develop
 gem 'active_model_serializers', git: 'git@github.com:rails-api/active_model_serializers.git', branch: '0-8-stable'
 gem 'devise'
 gem 'devise_token_auth'
+gem "simple_form", "~> 3.1.0"
 gem 'omniauth'
 gem 'devise-bootstrap-views'
 gem "nested_form"
+
 gem 'quiet_assets'
 gem 'bootstrap-sass'
 gem 'adminlte-generators'
 gem 'adminlte-rails'
-gem 'simple_form'
 gem 'icheck-rails'
 
 gem 'sprockets', '3.6.3'
