@@ -22,6 +22,10 @@
                 <span class="glyphicon glyphicon-pencil"></span>
                 Edit Project
             <% end %>
+            <%= link_to new_admin_project_ticket_path(@admin_project), :class => 'btn btn-primary' do %>
+                <span class="glyphicon glyphicon-list"></span>
+                New Ticket
+            <% end %>
             <%= link_to  admin_project_path(@admin_project), method: :delete, data: {confirm: 'Are you sure?'} do %>
                 <span class="glyphicon glyphicon-trash"></span>
                 Delete Project

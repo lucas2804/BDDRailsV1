@@ -1,0 +1,52 @@
+<% content_for :content_header  do %>
+  <section class="content-header">
+    <h1>Listing <small>admin_tickets</small></h1>
+
+    <ol class="breadcrumb">
+      <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+      <li class="active">admin_tickets</li>
+    </ol>    
+  </section>
+<% end %>
+
+<section class="content">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="box box-primary">
+        <div class="box-header">
+          <div class="box-tools pull-right">
+            <%= link_to new_admin_ticket_path(@admin_ticket), :class => 'btn btn-success' do %>
+              <span class="glyphicon glyphicon-plus"></span>
+              New Ticket
+            <% end %>          
+          </div>
+        </div>
+        <div class="box-body table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Project</th>
+                            <th></th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <%= content_tag_for(:tr, @admin_tickets) do |admin_ticket| %>
+              <td><%= admin_ticket.name %></td>
+              <td><%= admin_ticket.description %></td>
+              <td><%= admin_ticket.project %></td>
+                            <td><%= link_to 'Show', admin_ticket %></td>
+                <td><%= link_to 'Edit', edit_admin_ticket_path(admin_ticket) %></td>
+                <td><%= link_to 'Destroy', admin_ticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

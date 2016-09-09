@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-
   namespace :admin do
-    resources :projects
+    resources :projects do
+      resources :tickets
+    end
   end
   devise_for :users
 

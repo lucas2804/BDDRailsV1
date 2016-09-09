@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160907102631) do
+ActiveRecord::Schema.define(version: 20160909083757) do
 
   create_table "answers", force: :cascade do |t|
     t.string   "name",                              null: false
@@ -63,6 +63,16 @@ ActiveRecord::Schema.define(version: 20160907102631) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  create_table "tickets", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "project_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "tickets", ["project_id"], name: "index_tickets_on_project_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "encrypted_password",     default: "",    null: false
