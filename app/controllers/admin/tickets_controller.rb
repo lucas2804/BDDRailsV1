@@ -43,7 +43,7 @@ module Admin
     # DELETE /admin/tickets/1
     def destroy
       @ticket.destroy
-      redirect_to admin_tickets_url, notice: 'Ticket was successfully destroyed.'
+      redirect_to admin_project_url(@project), notice: 'Ticket was successfully destroyed.'
     end
 
     private

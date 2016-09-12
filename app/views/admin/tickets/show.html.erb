@@ -5,11 +5,13 @@
       </h1>
       <ul class="actions">
         <li><%= link_to "Edit Ticket", edit_admin_project_ticket_path(@project, @ticket),
-                        class: "edit" %></li>
+                        class: "pull-right btn btn-primary" %></li>
+        <li><%= link_to "Delete Ticket", admin_project_ticket_path(@project, @ticket), method: :delete,
+                        class: "pull-right btn btn-primary" %></li>
       </ul>
       <ol class="breadcrumb">
         <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><%= link_to "Admin_tickets", admin_project_tickets_path %></li>
+        <li><%= link_to "Tickets", admin_project_tickets_path %></li>
         <li class="active">Show</li>
       </ol>
 
