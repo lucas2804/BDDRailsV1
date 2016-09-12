@@ -8,7 +8,10 @@ gem 'omniauth'
 gem 'devise-bootstrap-views'
 gem "nested_form"
 
+# Thin server
 gem 'quiet_assets'
+gem 'thin'
+
 gem 'bootstrap-sass'
 gem 'adminlte-generators'
 gem 'adminlte-rails'

@@ -4,7 +4,7 @@ module Admin
 
     # GET /admin/projects
     def index
-      @admin_projects = ::Project.all
+      @projects = ::Project.all
     end
 
     # GET /admin/projects/1
@@ -13,7 +13,7 @@ module Admin
 
     # GET /admin/projects/new
     def new
-      @admin_project = ::Project.new
+      @project = ::Project.new
     end
 
     # GET /admin/projects/1/edit
@@ -22,10 +22,10 @@ module Admin
 
     # POST /admin/projects
     def create
-      @admin_project = ::Project.new(admin_project_params)
+      @project = ::Project.new(admin_project_params)
 
-      if @admin_project.save
-        redirect_to [:admin, @admin_project], notice: 'Project was successfully created.'
+      if @project.save
+        redirect_to [:admin, @project], notice: 'Project was successfully created.'
       else
         render :new
       end
@@ -33,8 +33,8 @@ module Admin
 
     # PATCH/PUT /admin/projects/1
     def update
-      if @admin_project.update(admin_project_params)
-        redirect_to [:admin, @admin_project], notice: 'Project was successfully updated.'
+      if @project.update(admin_project_params)
+        redirect_to [:admin, @project], notice: 'Project was successfully updated.'
       else
         render :edit
       end
@@ -42,14 +42,14 @@ module Admin
 
     # DELETE /admin/projects/1
     def destroy
-      @admin_project.destroy
+      @project.destroy
       redirect_to admin_projects_url, notice: 'Project was successfully destroyed.'
     end
 
     private
     # Use callbacks to share common setup or constraints between actions.
     def set_admin_project
-      @admin_project = ::Project.find(params[:id])
+      @project = ::Project.find(params[:id])
     rescue ActiveRecord::RecordNotFound
       flash[:alert] = "The project you were looking for could not be found."
       redirect_to admin_projects_path

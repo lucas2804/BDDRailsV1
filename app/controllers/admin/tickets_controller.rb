@@ -1,7 +1,6 @@
 module Admin
   class TicketsController < ApplicationController
-    # Have to place :set_project before :set_admin_ticket
-    before_action :set_project, only: [:new, :create, :show, :edit, :update, :destroy]
+    before_action :set_project, only: [:new, :create, :show, :edit, :update, :destroy]# Have to place :set_project before :set_admin_ticket
     before_action :set_admin_ticket, only: [:show, :edit, :update, :destroy]
 
     # GET /admin/tickets
