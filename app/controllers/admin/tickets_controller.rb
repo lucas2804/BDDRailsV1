@@ -25,7 +25,7 @@ module Admin
     def create
       @ticket = @project.tickets.build(admin_ticket_params)
       if @ticket.save
-        redirect_to [:admin, @project, @ticket], notice: 'Ticket was successfully created.'
+        redirect_to [:admin, @project], notice: 'Ticket was successfully created.'
       else
         render :new
       end
@@ -34,7 +34,7 @@ module Admin
     # PATCH/PUT /admin/tickets/1
     def update
       if @ticket.update(admin_ticket_params)
-        redirect_to @ticket, notice: 'Ticket was successfully updated.'
+        redirect_to [:admin, @project], notice: 'Ticket was successfully updated.'
       else
         render :edit
       end

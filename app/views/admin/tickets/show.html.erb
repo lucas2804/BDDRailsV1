@@ -1,14 +1,19 @@
 <% content_for :content_header do %>
     <section class="content-header">
       <h1>Show
-        <small>admin_ticket</small>
+        <small>Ticket</small>
       </h1>
-
+      <ul class="actions">
+        <li><%= link_to "Edit Ticket", edit_admin_project_ticket_path(@project, @ticket),
+                        class: "edit" %></li>
+      </ul>
       <ol class="breadcrumb">
         <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
         <li><%= link_to "Admin_tickets", admin_project_tickets_path %></li>
         <li class="active">Show</li>
       </ol>
+
+
     </section>
 <% end %>
 
