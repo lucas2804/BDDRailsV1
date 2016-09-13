@@ -1,6 +1,6 @@
 module Admin
   class TicketsController < ApplicationController
-    before_action :set_project, only: [:new, :create, :show, :edit, :update, :destroy]# Have to place :set_project before :set_admin_ticket
+    before_action :set_project # Have to place :set_project before :set_admin_ticket
     before_action :set_admin_ticket, only: [:show, :edit, :update, :destroy]
 
     # GET /admin/tickets
@@ -24,6 +24,7 @@ module Admin
     # POST /admin/tickets
     def create
       @ticket = @project.tickets.build(admin_ticket_params)
+      @ticket.author = current_user
       if @ticket.save
         redirect_to [:admin, @project], notice: 'Ticket was successfully created.'
       else
