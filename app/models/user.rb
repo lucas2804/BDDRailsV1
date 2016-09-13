@@ -12,6 +12,16 @@ class User < ActiveRecord::Base
     self.update(archived_at: Time.now)
   end
 
+  def active_for_authentication?
+    # Custom condition active or not.
+    super && archived_at.nil?
+  end
+
+  def inactive_message
+    # detect error message :inactive or :archived in devise.en.yml
+    archived_at.nil? ? super : :archived
+  end
+
   def generate_authentication_token!
     self.auth_token = SecureRandom.hex(16)
     # self.update_column(:api_key, SecureRandom.hex(16))
