@@ -1,5 +1,9 @@
 class Admin::ApplicationController < ApplicationController
-  # before_action :authorize_admin!
+  before_action :authorize_admin!
+
+  def index
+    binding.pry
+  end
 
   private
   def authorize_admin!
@@ -9,7 +13,5 @@ class Admin::ApplicationController < ApplicationController
     end
   end
 
-  def index
 
-  end
 end

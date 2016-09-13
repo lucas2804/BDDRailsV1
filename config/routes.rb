@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
   namespace :admin do
+    root to: "application#index"
     resources :projects do
       resources :tickets
     end
+    resources :tests
+    resources :users
   end
   devise_for :users
 
@@ -22,13 +25,6 @@ Rails.application.routes.draw do
     post "crawl_data", as: :crawl_data, to: "crawlers#crawl_data"
   end
 
-  namespace :admin do
-    root to: "application#index"
-    resources :projects
-
-    resources :tests
-    resources :users
-  end
 
   root to: "home#index"
 
