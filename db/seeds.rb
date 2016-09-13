@@ -16,6 +16,21 @@ unless User.exists?(email: "super_teacher@gmail.com")
   User.create!(email: "student@gmail.com", username: "normal_teacher", password: "1234qwer", password_confirmation: "1234qwer",)
 end
 
+# Rails4InAction seed
+unless User.exists?(email: "admin@ticketee.com")
+  User.create!(email: "admin@ticketee.com", password: "password", admin: true)
+end
+unless User.exists?(email: "viewer@ticketee.com")
+  User.create!(email: "viewer@ticketee.com", password: "password")
+end
+["Sublime Text 3", "Internet Explorer"].each do |name|
+  unless Project.exists?(name: name)
+    Project.create!(name: name, description: "A sample project about #{name}"
+    )
+  end
+end
+# End Rails4InAction seed
+
 unless ::Test.exists?(name: "Ruby")
   ::Test.create!(name: "Ruby", description: "Foundation in Ruby")
 end

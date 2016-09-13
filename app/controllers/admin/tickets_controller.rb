@@ -34,6 +34,7 @@ module Admin
 
     # PATCH/PUT /admin/tickets/1
     def update
+      @ticket.author = current_user
       if @ticket.update(admin_ticket_params)
         redirect_to [:admin, @project], notice: 'Ticket was successfully updated.'
       else
