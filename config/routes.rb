@@ -5,7 +5,9 @@ Rails.application.routes.draw do
       resources :tickets
     end
     resources :tests
-    resources :users
+    resources :users do
+      patch :archive, on: :member
+    end
   end
   devise_for :users
 

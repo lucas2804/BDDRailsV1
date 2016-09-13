@@ -22,6 +22,10 @@
                 <span class="glyphicon glyphicon-pencil"></span>
                 Edit User
             <% end %>
+            <%= link_to archive_admin_user_path(@user), method: :patch, :class => 'btn btn-flat bg-orange' do %>
+                <span class="glyphicon glyphicon-trash"></span>
+                Archive User
+            <% end %>
           </div>
         </div>
         <div class="box-body">
@@ -33,7 +37,6 @@
             <dd><%= @user.email %></dd>
           </dl>
         </div>
-
 
       </div>
     </div>

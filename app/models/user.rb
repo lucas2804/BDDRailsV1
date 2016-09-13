@@ -1,10 +1,16 @@
 class User < ActiveRecord::Base
   # Include default devise modules.
   devise :database_authenticatable, :registerable,
-          :recoverable, :rememberable, :trackable, :validatable,
-          :omniauthable
+         :recoverable, :rememberable, :trackable, :validatable,
+         :omniauthable
 
   before_create :generate_authentication_token!
+
+  scope :excluding_archived, -> { where(archived_at: nil)}
+
+  def archive
+    self.update(archived_at: Time.now)
+  end
 
   def generate_authentication_token!
     self.auth_token = SecureRandom.hex(16)
