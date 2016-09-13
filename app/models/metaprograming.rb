@@ -1,10 +1,8 @@
-
-module Metaprograming
+class Metaprograming
   class  ExploreCollection
-    attr_accessor words
+    attr_accessor :words
 
     def initialize
-      binding.pry
       self.words = %w{ Mary had a little lamb }
     end
     def index_for( word )
