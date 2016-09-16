@@ -13,3 +13,7 @@
 # config.include Warden::Test::Helpers, type: :feature
 # config.after(type: :feature) { Warden.test_reset! }
 
+# ---------- UNIQUENESS EMAIL !IMPORTANT --------------
+# in rails_helper, always rollback to clean state.
+# config.use_transactional_fixtures = true
+

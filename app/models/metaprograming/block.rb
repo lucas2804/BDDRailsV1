@@ -1,4 +1,5 @@
 # Block is not an object, SO we need Proc and Lambda
+# Block is like an additional, an anonymous argument to a method
 class Mage
   attr_accessor :name, :spell
 
@@ -71,6 +72,15 @@ x = "Hello" #binding x into my_block1
 puts my_block1 {|y| "#{x}, #{y} world"}
 
 #github.com/bbatsov/ruby-style-guide
+# 4)Block is like an additional, an anonymous argument to a method
+def math(a, b)
+  yield
+end
 
+def do_math(a, b, &operation)
+  math(a, b, &operation)
+end
+
+do_math(2, 3){|x, y| x * y }
 
 

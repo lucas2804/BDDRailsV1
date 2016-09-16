@@ -1,6 +1,6 @@
 class Admin::ApplicationController < ApplicationController
   before_action :authorize_admin!
-
+  rescue_from Pundit::NotAuthorizedError, with: :pundit_not_authorized
   def index
   end
 
@@ -12,5 +12,8 @@ class Admin::ApplicationController < ApplicationController
     end
   end
 
+  def pundit_not_authorized
+    redirect_to root_path, alert: "Your aren't allowed to do that. (Pundit)"
+  end
 
 end

@@ -38,6 +38,7 @@ RSpec.feature "Users can only see the appropriate links" do
     end
 
     scenario "be able to see the Delete Project link" do
+      assign_role! admin, :viewer, project
       visit admin_project_path project
       expect(page).to have_link "Delete Project"
     end

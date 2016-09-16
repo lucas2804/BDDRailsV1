@@ -7,7 +7,7 @@ gem "simple_form", "~> 3.1.0"
 gem 'omniauth'
 gem 'devise-bootstrap-views'
 gem "nested_form"
-
+gem 'pundit',  "~> 0.3.0"
 # Thin server
 gem 'quiet_assets'
 gem 'thin'
@@ -72,6 +72,7 @@ group :development do
   gem 'spring'
   gem 'zeus'
   gem 'spring-commands-rspec'
+  gem "database_cleaner", "~> 1.4"
 end
 
 

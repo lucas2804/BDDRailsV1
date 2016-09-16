@@ -9,6 +9,7 @@ module Admin
 
     # GET /admin/projects/1
     def show
+      authorize @project, :show?
     end
 
     # GET /admin/projects/new
@@ -23,7 +24,6 @@ module Admin
     # POST /admin/projects
     def create
       @project = ::Project.new(project_params)
-
       if @project.save
         redirect_to [:admin, @project], notice: 'Project was successfully created.'
       else

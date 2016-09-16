@@ -1,9 +1,10 @@
 require "rails_helper"
 RSpec.feature "Users can create new tickets" do
-  let(:user) {FactoryGirl.create(:user)}
+  let(:admin) {FactoryGirl.create(:user, :admin)}
   before do
-    login_as(user)
     project = FactoryGirl.create(:project, name: "Internet Explorer")
+    assign_role! admin, :viewer, project
+    login_as(admin)
     visit admin_project_path(project)
     click_link "New Ticket"
   end
@@ -13,7 +14,7 @@ RSpec.feature "Users can create new tickets" do
     click_button "Create Ticket"
     expect(page).to have_content "Ticket was successfully created"
     within ("#tickets") do
-      expect(page).to have_content "Author: #{user.email}"
+      expect(page).to have_content "Author: #{admin.email}"
     end
   end
   scenario "when providing invalid attributes" do
