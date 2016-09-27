@@ -1,6 +1,7 @@
 # codeSchoolAPI
 codeSchoolAPI is my boilerplate, I've structured code into admin_namespace and api_namespace, authentication with devise, simple example about accepts_nested_attributes_for with 2 level test-nQuestions-nAnswers, and decorated with adminlte theme.
-
+add one line, add one more line.
+add one more line from lucas2804.
 1. clone code from github 
 2. ```rake db:migrate```
 3. ```rake db:seed``` to get sample data
@@ -67,7 +68,7 @@ class CrawlerSerializer < ActiveModel::Serializer
   attributes :id, :url, :link_content, :h1_content, :h2_content, :h3_content, :term
 end
 ```
-Fork Test from BDD
+Fork Test from BDD, ToTo
 ## Contributors
  * codeschool.com (Surviving APIs with Rails Courses) ([@codeschool.com](http://codeschool.com)) 
 
