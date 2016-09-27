@@ -20,3 +20,7 @@
 # vagrant halt #keeping the env for later use
 # vagrant destroy #discarding the entire working env
 #
+
+# ---------- Vargant ---------------------------
+# 1) Command line Utility enable to people who want cho manage VM
+# 2) 

@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+
+  resources :tasks
+  resources :tasks
+  resources :projects
+
   namespace :admin do
     root to: "application#index"
     resources :projects do

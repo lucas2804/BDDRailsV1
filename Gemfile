@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-gem "calabash-cucumber", :github => "calabash/calabash-ios", :branch => "develop"
+# gem "calabash-cucumber", :github => "calabash/calabash-ios", :branch => "develop"
 gem 'active_model_serializers', git: 'git@github.com:rails-api/active_model_serializers.git', branch: '0-8-stable'
 gem 'devise'
 gem 'devise_token_auth'
@@ -50,7 +50,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 group :test do
-  gem "rspec-rails", "~> 3.2.1"
+  gem "rspec-rails", "~> 3.4.1"
   gem "capybara", "~> 2.4"
   gem "factory_girl_rails", "~> 4.5"
   gem 'ffaker'
