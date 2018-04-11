@@ -1,4 +1,10 @@
+require 'resque/server'
 Rails.application.routes.draw do
+
+  #START Resque
+  mount Resque::Server.new, at: "/resque"
+
+  #END Resque
 
   resources :tasks
   resources :tasks

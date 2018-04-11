@@ -75,5 +75,7 @@ group :development do
   gem "database_cleaner", "~> 1.4"
 end
 
-
+#Resque
+gem 'resque'
+gem 'resque-scheduler'
 
