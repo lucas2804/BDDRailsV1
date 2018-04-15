@@ -1,22 +1,64 @@
 version: 2
 workflows:
   version: 2
-  one_and_two:
+  one:
     jobs:
       - one
-      - two
 jobs:
   one:
     docker:
       - image: circleci/ruby:2.4.1
+      - image: redis:3.2.8
+    working_directory: ~/BDDRailsV1
     steps:
       - checkout
-      - run: echo "A first hello"
-      - run: sleep 25
-  two:
-    docker:
-      - image: circleci/ruby:2.4.1
-    steps:
-      - checkout
-      - run: echo "A more familiar hi"
-      - run: sleep 15
+      - run: |-
+          export RAILS_ENV="test"
+          export RACK_ENV="test"
+
+      - run:
+          name: Which bundler?
+          command: bundle -v
+          # Which version of bundler?
+      - run:
+          name: Which bundler?
+          command: bundle -v
+
+      # Restore bundle cache
+      - restore_cache:
+          keys:
+            - rails-demo-bundle-v2-{{ checksum "Gemfile.lock" }}
+            - rails-demo-bundle-v2-
+
+      - run:
+          name: Bundle Install
+          command: bundle check || bundle install
+
+      # Store bundle cache
+      - save_cache:
+          key: rails-demo-bundle-v2-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+
+
+      - run:
+          name: Bundle Install
+          command: bundle check || bundle install
+
+      - type: shell
+        command: |
+          bundle exec rspec --profile 10 \
+                            --format RspecJunitFormatter \
+                            --out test_results/rspec.xml \
+                            --format progress \
+                            $(circleci tests glob "spec/models/**/*_spec.rb" | circleci tests split --split-by=timings)
+#      - run:
+#          name: Install ruby dependencies
+#          command: |
+#            bundle install --path vendor/bundle
+#
+#      - run:
+#          name: Unit test
+#          command: |
+#            cat spec/models/test_redis_spec.rb
+#            bundle exec rspec spec/models/test_redis_spec.rb
