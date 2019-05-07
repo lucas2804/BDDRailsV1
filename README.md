@@ -73,4 +73,4 @@ Fork Test from BDD, ToTo
  * codeschool.com (Surviving APIs with Rails Courses) ([@codeschool.com](http://codeschool.com)) 
 
 ## Copyright
-
+ldang@blurb.com
